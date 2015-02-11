@@ -8,10 +8,18 @@
  *  0   in caso di successo;
  *  -1  in caso di errore;
  */
-int push(studenteStack *stack, studente newStudente) {
-    int r=0;
+int push(studenteStack *stack, studente newStudente) { //modificato
+    int r= -1;
+    studenteStack * temp=NULL;
+    *temp=(studenteStack)malloc(sizeof(stackElement));
     
-    // TODO Implementa il corpo della funzione
+    if(*temp!=NULL){
+        strcpy(((*temp)->s).nome , newStudente.nome);
+        strcpy(((*temp)->s).cognome , newStudente.cognome);
+        (*temp)->next=*stack;
+        *stack=*temp;
+        r=0;
+    }
     
     return r;
 }

@@ -7,7 +7,7 @@ const char fname[]="studenti.dat";
 int main(int argc, char** argv) {
     FILE *inputFile;
     studente s;
-    stackElement *stack=NULL;
+    stackElement *stack=NULL; //studenteStack stack;
     int returnValue;
     
     // Apertura del file di lettura dati
@@ -20,7 +20,8 @@ int main(int argc, char** argv) {
     // Aggiunta degli elementi alla pila
     while(fread(&s, sizeof(studente), 1, inputFile) == 1) {
         // s contiene i dati dello studente letto
-        
+        fread(&s, sizeof(studente), 1, inputFile);
+        returnValue=push(&stack,s);
         // TODO Implementa il codice per la gestione della chiamata a push
     }
     fclose(inputFile);
